@@ -2,15 +2,27 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private float moveSpeed = 90f;
+
+    private Vector2 move;
+    private Rigidbody2D rb;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        Vector2 newPos = transform.position;
+
+        newPos.y += Input.GetAxisRaw("Vertical") * moveSpeed;
+
+        rb.MovePosition(newPos);
     }
 }
