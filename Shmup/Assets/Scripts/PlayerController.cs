@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -21,7 +22,23 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 newPos = transform.position;
 
-        newPos.y += Input.GetAxisRaw("Vertical") * moveSpeed;
+        if (Keyboard.current.dKey.isPressed)
+        {
+            newPos.x += moveSpeed * Time.deltaTime;
+        }
+        if (Keyboard.current.aKey.isPressed)
+        {
+            newPos.x -= moveSpeed * Time.deltaTime;
+        }
+
+        if (Keyboard.current.wKey.isPressed)
+        {
+            newPos.y += moveSpeed * Time.deltaTime;
+        }
+        if (Keyboard.current.sKey.isPressed)
+        {
+            newPos.y -= moveSpeed * Time.deltaTime;
+        }
 
         rb.MovePosition(newPos);
     }
