@@ -5,6 +5,8 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 90f;
 
+    [SerializeField] private GameObject bulletPrefab;
+
     private Vector2 move;
     private Rigidbody2D rb;
 
@@ -15,31 +17,36 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        
+
     }
 
     private void Update()
     {
-        Vector2 newPos = transform.position;
+        move = Vector2.zero;
 
         if (Keyboard.current.dKey.isPressed)
         {
-            newPos.x += moveSpeed * Time.deltaTime;
+            move.x++;
         }
         if (Keyboard.current.aKey.isPressed)
         {
-            newPos.x -= moveSpeed * Time.deltaTime;
+            move.x--;
         }
 
         if (Keyboard.current.wKey.isPressed)
         {
-            newPos.y += moveSpeed * Time.deltaTime;
+            move.y++;
         }
         if (Keyboard.current.sKey.isPressed)
         {
-            newPos.y -= moveSpeed * Time.deltaTime;
+            move.y--;
         }
 
-        rb.MovePosition(newPos);
+        if (Keyboard.current.kKey.wasPressedThisFrame)
+        {
+            Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        }
+
+        rb.linearVelocity = move.normalized * moveSpeed;
     }
 }
