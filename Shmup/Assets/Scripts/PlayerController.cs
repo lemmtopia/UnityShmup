@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 90f;
+    [SerializeField] private float animTurnThreshold = 0.35f;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform bulletSpawnPointTransform;
 
@@ -34,11 +36,11 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            if (move.y > 0)
+            if (move.y > animTurnThreshold)
             {
                 animator.SetFloat("MoveY", 1);
             }
-            else
+            else if (move.y < -animTurnThreshold)
             {
                 animator.SetFloat("MoveY", -1);
             }
@@ -52,5 +54,13 @@ public class PlayerController : MonoBehaviour
         }
 
         lastFire = GameInput.Instance.IsFireActionPressed();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Hazard"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }
