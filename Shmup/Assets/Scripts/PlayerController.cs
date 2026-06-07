@@ -9,15 +9,17 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 move;
     private Rigidbody2D rb;
+    private Animator animator;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     private void Start()
     {
-
+        animator.SetFloat("MoveY", 0);
     }
 
     private void Update()
@@ -36,17 +38,24 @@ public class PlayerController : MonoBehaviour
         if (Keyboard.current.wKey.isPressed)
         {
             move.y++;
+            animator.SetFloat("MoveY", 1);
         }
         if (Keyboard.current.sKey.isPressed)
         {
             move.y--;
+            animator.SetFloat("MoveY", -1);
         }
+
+        if (move.y == 0)
+        {
+            animator.SetFloat("MoveY", 0);
+        }
+
+        rb.linearVelocity = move.normalized * moveSpeed;
 
         if (Keyboard.current.kKey.wasPressedThisFrame)
         {
             Instantiate(bulletPrefab, transform.position, Quaternion.identity);
         }
-
-        rb.linearVelocity = move.normalized * moveSpeed;
     }
 }
