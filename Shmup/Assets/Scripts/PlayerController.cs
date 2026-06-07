@@ -4,8 +4,8 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 90f;
-
     [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private Transform bulletSpawnPointTransform;
 
     private Vector2 move;
     private Rigidbody2D rb;
@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
 
         if (Keyboard.current.kKey.wasPressedThisFrame)
         {
-            Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            Instantiate(bulletPrefab, bulletSpawnPointTransform.position, Quaternion.identity);
         }
     }
 }
