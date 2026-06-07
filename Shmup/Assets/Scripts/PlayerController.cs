@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
 
+    private bool lastFire = false;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -24,38 +26,31 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        move = Vector2.zero;
-
-        if (Keyboard.current.dKey.isPressed)
-        {
-            move.x++;
-        }
-        if (Keyboard.current.aKey.isPressed)
-        {
-            move.x--;
-        }
-
-        if (Keyboard.current.wKey.isPressed)
-        {
-            move.y++;
-            animator.SetFloat("MoveY", 1);
-        }
-        if (Keyboard.current.sKey.isPressed)
-        {
-            move.y--;
-            animator.SetFloat("MoveY", -1);
-        }
+        move = GameInput.Instance.GetMoveActionValue();
 
         if (move.y == 0)
         {
             animator.SetFloat("MoveY", 0);
         }
+        else
+        {
+            if (move.y > 0)
+            {
+                animator.SetFloat("MoveY", 1);
+            }
+            else
+            {
+                animator.SetFloat("MoveY", -1);
+            }
+        }
 
         rb.linearVelocity = move.normalized * moveSpeed;
 
-        if (Keyboard.current.kKey.wasPressedThisFrame)
+        if (GameInput.Instance.IsFireActionPressed() && !lastFire)
         {
             Instantiate(bulletPrefab, bulletSpawnPointTransform.position, Quaternion.identity);
         }
+
+        lastFire = GameInput.Instance.IsFireActionPressed();
     }
 }
