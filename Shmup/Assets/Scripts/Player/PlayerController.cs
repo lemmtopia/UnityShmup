@@ -89,6 +89,8 @@ public class PlayerController : MonoBehaviour
         {
             OnDeath?.Invoke(this, EventArgs.Empty);
 
+            LevelManager.Instance.RestartCurrentLevel();
+
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

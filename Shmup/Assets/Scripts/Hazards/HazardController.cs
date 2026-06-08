@@ -17,12 +17,18 @@ public class HazardController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
+    private void Start()
+    {
+        LevelManager.Instance.AddHazard();
+    }
+
     private void Update()
     {
         rb.linearVelocity = moveDirection * moveSpeed;
 
         if (transform.position.x < -destroyBorder || transform.position.y > destroyBorder || transform.position.y < -destroyBorder)
         {
+            LevelManager.Instance.RemoveHazard();
             Destroy(gameObject);
         }
     }
@@ -33,6 +39,8 @@ public class HazardController : MonoBehaviour
         {
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             OnDeath?.Invoke(this, EventArgs.Empty);
+
+            LevelManager.Instance.RemoveHazard();
 
             Destroy(collision.gameObject);
             Destroy(gameObject);
