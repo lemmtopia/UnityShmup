@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class HazardController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 4f;
     [SerializeField] private GameObject explosionPrefab;

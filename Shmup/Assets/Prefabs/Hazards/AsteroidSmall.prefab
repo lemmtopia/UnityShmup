@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 5765518204669224426}
   - component: {fileID: 7728075495599933109}
   - component: {fileID: 1227882702111376177}
-  - component: {fileID: 5406044940115214784}
+  - component: {fileID: 6523582216327087197}
+  - component: {fileID: 1177425169397500179}
   m_Layer: 0
   m_Name: AsteroidSmall
   m_TagString: Hazard
@@ -108,7 +109,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.6, y: 0.6}
   m_EdgeRadius: 0
---- !u!114 &5406044940115214784
+--- !u!114 &6523582216327087197
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,11 +118,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 2664754919056674547}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fdbbfce8c2466b49ac99622b113c697, type: 3}
+  m_Script: {fileID: 11500000, guid: a6aaf17a927cc6b4697ee42ec621111b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyController
+  m_EditorClassIdentifier: Assembly-CSharp::HazardController
   moveSpeed: 4
   explosionPrefab: {fileID: 7509908902744079254, guid: b8155df061af1d240b6fb28816ee72a4, type: 3}
+--- !u!114 &1177425169397500179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2664754919056674547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32854615686e2424bb93800e4f996a3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectRotator
+  rotationSpeed: 65
+  rotationDirection: {x: 0, y: 0, z: -1}
 --- !u!1 &4905024504569568756
 GameObject:
   m_ObjectHideFlags: 0

@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 708838261038002645}
   - component: {fileID: 6481173233799327618}
   - component: {fileID: 1398408669059043431}
-  - component: {fileID: 6175786296473498913}
+  - component: {fileID: 2763941676718569545}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Hazard
@@ -222,7 +222,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &6175786296473498913
+--- !u!114 &2763941676718569545
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -231,8 +231,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 6720095588354239711}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fdbbfce8c2466b49ac99622b113c697, type: 3}
+  m_Script: {fileID: 11500000, guid: a6aaf17a927cc6b4697ee42ec621111b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyController
+  m_EditorClassIdentifier: Assembly-CSharp::HazardController
   moveSpeed: 3
   explosionPrefab: {fileID: 7509908902744079254, guid: b8155df061af1d240b6fb28816ee72a4, type: 3}
