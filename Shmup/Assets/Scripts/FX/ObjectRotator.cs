@@ -13,6 +13,6 @@ public class ObjectRotator : MonoBehaviour
 
     void Update()
     {
-        transform.Rotate(rotationDirection.normalized * rotationSpeed * Time.deltaTime);
+        transform.Rotate(rotationDirection * rotationSpeed * Time.deltaTime);
     }
 }

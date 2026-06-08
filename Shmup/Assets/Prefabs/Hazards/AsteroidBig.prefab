@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5799577166553562119}
   - component: {fileID: 8043259676218757515}
   - component: {fileID: 1587923663212616536}
+  - component: {fileID: 8423309449053409122}
   m_Layer: 0
   m_Name: AsteroidBig
   m_TagString: Hazard
@@ -122,6 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HazardController
   moveSpeed: 2
+  moveDirection: {x: -1, y: 0}
   explosionPrefab: {fileID: 7509908902744079254, guid: b8155df061af1d240b6fb28816ee72a4, type: 3}
 --- !u!114 &1587923663212616536
 MonoBehaviour:
@@ -137,6 +139,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ObjectRotator
   rotationSpeed: 45
   rotationDirection: {x: 0, y: 0, z: -1}
+--- !u!114 &8423309449053409122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7460157296354423139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 525b4fbdc382eb744a6eb6a5cfec80f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AstetroidSmallSpawner
+  amountToSpawn: 2
+  asterionSmallPrefab: {fileID: 2664754919056674547, guid: 7c59af7ae2076aa409f67e5e26cab99d, type: 3}
 --- !u!1 &8246840433679579107
 GameObject:
   m_ObjectHideFlags: 0
