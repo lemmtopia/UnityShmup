@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Scroller : MonoBehaviour
+public class TextureScroller : MonoBehaviour
 {
     [SerializeField] private float scrollSpeed = 10f;
     [SerializeField] private new Renderer renderer;

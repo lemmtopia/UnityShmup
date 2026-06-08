@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8783704517659711682}
   - component: {fileID: 941494867156817855}
   - component: {fileID: 4353422197947655915}
-  - component: {fileID: 8793269645765138807}
+  - component: {fileID: 4476573503197898954}
   m_Layer: 0
   m_Name: Cosmos
   m_TagString: Untagged
@@ -114,7 +114,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &8793269645765138807
+--- !u!114 &4476573503197898954
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,10 +123,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 641559250319533563}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af3b428242c0f664884c3562039aa2dd, type: 3}
+  m_Script: {fileID: 11500000, guid: e56222557a2608d4195acd5de464e2e2, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Scroller
-  scrollSpeed: 0.05
+  m_EditorClassIdentifier: Assembly-CSharp::TextureScroller
+  scrollSpeed: 0.015
   renderer: {fileID: 941494867156817855}
 --- !u!1 &2141629077948557870
 GameObject:
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 3684189736600098651}
   - component: {fileID: 7955115600552037990}
   - component: {fileID: 3170466142401647235}
-  - component: {fileID: 4720489161342667785}
+  - component: {fileID: 7325788371753151973}
   m_Layer: 0
   m_Name: Stars
   m_TagString: Untagged
@@ -242,7 +242,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &4720489161342667785
+--- !u!114 &7325788371753151973
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -251,10 +251,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2141629077948557870}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af3b428242c0f664884c3562039aa2dd, type: 3}
+  m_Script: {fileID: 11500000, guid: e56222557a2608d4195acd5de464e2e2, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Scroller
-  scrollSpeed: 0.075
+  m_EditorClassIdentifier: Assembly-CSharp::TextureScroller
+  scrollSpeed: 0.025
   renderer: {fileID: 7955115600552037990}
 --- !u!1 &2184872394976277597
 GameObject:
@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 6741223195690846711}
   - component: {fileID: 5397308901076015475}
   - component: {fileID: 6853236016192317117}
-  - component: {fileID: 3577539097863226524}
+  - component: {fileID: 2272520306965936430}
   m_Layer: 0
   m_Name: Planet
   m_TagString: Untagged
@@ -370,7 +370,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &3577539097863226524
+--- !u!114 &2272520306965936430
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -379,10 +379,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2184872394976277597}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af3b428242c0f664884c3562039aa2dd, type: 3}
+  m_Script: {fileID: 11500000, guid: e56222557a2608d4195acd5de464e2e2, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Scroller
-  scrollSpeed: 0.0075
+  m_EditorClassIdentifier: Assembly-CSharp::TextureScroller
+  scrollSpeed: 0.005
   renderer: {fileID: 5397308901076015475}
 --- !u!1 &3971051339573312927
 GameObject:
