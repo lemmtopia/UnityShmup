@@ -4,6 +4,7 @@ public class BulletController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 200f;
     [SerializeField] private Vector2 move;
+    [SerializeField] private float destroyBorder = 15f;
 
     private Rigidbody2D rb;
 
@@ -21,7 +22,7 @@ public class BulletController : MonoBehaviour
     {
         rb.linearVelocity = move * moveSpeed;
 
-        if (transform.position.x > 20 || transform.position.x < -20 || transform.position.y > 20 || transform.position.y < -20)
+        if (transform.position.x > destroyBorder || transform.position.x < -destroyBorder || transform.position.y > destroyBorder || transform.position.y < -destroyBorder)
         {
             Destroy(gameObject);
         }
