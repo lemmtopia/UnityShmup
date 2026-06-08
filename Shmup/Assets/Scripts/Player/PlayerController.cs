@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float animTurnThreshold = 0.35f;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform bulletSpawnPointTransform;
+    [SerializeField] private AudioSource shootSound;
+    [SerializeField] private GameObject explosionPrefab;
 
     private Vector2 move;
     private Rigidbody2D rb;
@@ -50,6 +52,8 @@ public class PlayerController : MonoBehaviour
 
         if (GameInput.Instance.IsFireActionPressed() && !lastFire)
         {
+            shootSound.Play();
+
             Instantiate(bulletPrefab, bulletSpawnPointTransform.position, Quaternion.identity);
         }
 
@@ -59,8 +63,9 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Hazard"))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        { 
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            Destroy(gameObject);
         }
     }
 }
