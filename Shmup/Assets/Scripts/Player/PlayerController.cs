@@ -1,9 +1,14 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    public event EventHandler OnDeath;
+
+    [SerializeField] private float xBorder = 9f;
+    [SerializeField] private float yBorder = 5f;
     [SerializeField] private float moveSpeed = 90f;
     [SerializeField] private float animTurnThreshold = 0.35f;
     [SerializeField] private GameObject bulletPrefab;
@@ -50,6 +55,24 @@ public class PlayerController : MonoBehaviour
 
         rb.linearVelocity = move.normalized * moveSpeed;
 
+        if (transform.position.x > xBorder)
+        {
+            transform.position = new Vector3(xBorder, transform.position.y, transform.position.z);
+        }
+        else if (transform.position.x < -xBorder)
+        {
+            transform.position = new Vector3(-xBorder, transform.position.y, transform.position.z);
+        }
+
+        if (transform.position.y > yBorder)
+        {
+            transform.position = new Vector3(transform.position.x, yBorder, transform.position.z);
+        }
+        else if (transform.position.y < -yBorder)
+        {
+            transform.position = new Vector3(transform.position.x, -yBorder, transform.position.z);
+        }
+
         if (GameInput.Instance.IsFireActionPressed() && !lastFire)
         {
             shootSound.Play();
@@ -63,7 +86,9 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Hazard"))
-        { 
+        {
+            OnDeath?.Invoke(this, EventArgs.Empty);
+
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
